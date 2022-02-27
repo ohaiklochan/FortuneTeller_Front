@@ -1,18 +1,14 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
-import { connect } from 'react-redux'
 
 function Nav() {
     return(
         <div className='navigation'>
-            <NavLink to="/" exact><button>Home</button></NavLink>
-            <NavLink to="/about" exact>About</NavLink>
-            <NavLink to="/tarot" exact>What do you need to hear through the Tarot?</NavLink>
-            <NavLink to="/cookie" exact>What is your fortune?</NavLink>
+            <button type="button" class="btn btn-primary" onClick={() => window.location = '/'}>Home</button>
+            <button type="button" class="btn btn-secondary" onClick={() => window.location = '/about'}>About</button>
+            <button type="button" class="btn btn-tertiary" onClick={() => window.location = '/cookie'}>Break a Fortune Cookie</button>
+            <button type="button" class="btn btn-quarternary" onClick={() => window.location = '/card'}>Draw A Tarot Card</button>
         </div>
     )
 }
 
-const mapStateToProps = state => ({})
-
-export default connect(mapStateToProps) (Nav)
+export default Nav

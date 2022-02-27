@@ -1,11 +1,14 @@
-import react from "react"
-import { Link } from "react-router-dom"
+import React from "react"
+import { Tarot } from "../components/Tarot"
 
-export default function TarotContainer() {
+
+function TarotContainer() {
     return(
         <div>
             <h1>What does the day have in store for you?</h1>
-            <Link></Link>
+            <Tarot/>
         </div>
     )
 }
+
+export default TarotContainer

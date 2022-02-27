@@ -1,16 +1,16 @@
 const initialTarot = {
-    title: "",
-    upright_meaning: "",
-    reversed_meaning: "",
-    imgUrl: "",
-    imgUrl_reversed: "",
-    reading: "",
-    reversed_reading: ""
+    title: [],
+    upright_meaning: [],
+    reversed_meaning: [],
+    imgUrl: [],
+    imgUrl_reversed: [],
+    reading: [],
+    reversed_reading: []
 }
 
 const initalCookie = {
-    fortune: "",
-    meaning: ""
+    fortune: [],
+    meaning: []
 }
 
 const initalState = {
@@ -21,11 +21,15 @@ const initalState = {
 
 export function rootReducer(state = initalState, action) {
     switch(action.type) {
-        case "SHOW_CARDS":
+        case "START_LOADING_COOKIES":
+        case "START_LOADING_CARDS":
+        case "LOAD_CARDS":
             return {...state, cards: action.payload}
-        case "SHOW_COOKIES":
+        case "LOAD_COOKIES":
             return {...state, cookies: action.payload}
         default:
             return {...state}
     }
 }
+
+export default rootReducer
