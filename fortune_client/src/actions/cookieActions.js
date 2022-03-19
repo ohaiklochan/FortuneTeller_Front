@@ -2,10 +2,11 @@ const apiCookiesUrl = "https://fortune-teller-react-app.herokuapp.com/api/v1/coo
 
 export function fetchCookies() {
     return(dispatch) => {
-        dispatch({ type: 'START_LOADING_COOKIES' })
+        // dispatch({ type: 'START_LOADING_COOKIES' })
         fetch(apiCookiesUrl)
         .then(res => res.json())
-        .then(cookies => dispatch({type:'LOAD_COOKIES', cookies}))
+        .then(cookies => console.log(cookies))
+        .then(cookies => dispatch({ type: 'LOAD_COOKIES', cookies }) )
     }
 }
 
@@ -15,6 +16,13 @@ export function showCookies(cookies) {
         payload: cookies
     }
 }
+
+// export function selectRandomFortune() {
+//     return {
+//         type: 'SELECT_RANDOM_FORTUNE',
+//         payload: fortune
+//     }
+// }
 
 // export const fetchCookies = () => {
 //     return dispatch => {

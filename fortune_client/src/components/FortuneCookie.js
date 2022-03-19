@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
-import { showCookies } from '../actions/cookieActions'
+import { fetchCookies } from '../actions/cookieActions'
 import Nav from './Nav'
 
 function FortuneCookie() {
 
-    const [fortune, setFortune] = useState(1);
-
     useEffect(() => {
-        showCookies()}, []
+        console.log('fetching cookies')
+        fetchCookies()}, []
     ) 
 
-    const randomFortune = (e) => {
-        setFortune(Math.floor(Math.random() * fortune.length))
-    }
+    const [fortune, setFortune] = useState("");
+
 
     return (
         <div>
@@ -26,11 +24,11 @@ function FortuneCookie() {
         </div>
         </div>
         <div className='fortune'>
-            <p className='fortune'>{fortune.text}</p><br/>
+            <p className='fortune'>{fortune}</p><br/>
             <p className='fortune-meaning'>{fortune.meaning}</p><br/><br/>
         </div>
             <div className='cookie-generator'>
-                <button className='generate-fortune' onClick={randomFortune}>Crack open the cookie!</button>
+                <button className='generate-fortune' onClick={()=>setFortune(Math.random())}>Crack open the cookie!</button>
             </div>
             <br/><br/>
         <div><Nav /></div>
@@ -39,6 +37,7 @@ function FortuneCookie() {
   
 }
 
-const mapStateToProps = (state) => ({ cookie: state.cookie })
 
-export default connect(mapStateToProps, {showCookies} )(FortuneCookie)
+const mapStateToProps = (state) => ( console.log(state) )
+
+export default connect(mapStateToProps, {fetchCookies} )(FortuneCookie)

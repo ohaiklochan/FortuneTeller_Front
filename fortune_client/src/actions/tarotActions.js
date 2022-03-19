@@ -15,3 +15,10 @@ export function showCards(cards) {
         payload: cards
     }
 }
+
+// export function showRandomCard() {
+//     return {
+//         type: 'SHOW_RANDOM_CARD',
+//         payload: card
+//     }
+// }
